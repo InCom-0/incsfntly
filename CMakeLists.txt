@@ -5,6 +5,7 @@ set(CMAKE_CXX_SCAN_FOR_MODULES OFF)
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
   add_compile_options(/utf-8)
+  add_compile_definitions(NOMINMAX)
 endif()
 
 ########################################################
