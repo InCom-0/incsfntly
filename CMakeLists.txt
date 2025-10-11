@@ -10,12 +10,8 @@ endif()
 ########################################################
 ### Target specification ###
 ########################################################
-add_library(incsfntly STATIC)
-target_compile_features(incsfntly PRIVATE cxx_std_23)
+add_library(incsfntly src/main.cpp)
+target_compile_features(incsfntly PUBLIC cxx_std_23)
 
 include(CMake_dependencies.cmake) ### Loads and declares the required external libraries using CMake's FetchContent.
-
-
-
-
-# target_link_libraries(incsfntly INTERFACE)
+target_link_libraries(incsfntly PUBLIC sfntly)
