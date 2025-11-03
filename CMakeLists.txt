@@ -11,8 +11,16 @@ endif()
 ########################################################
 ### Target specification ###
 ########################################################
-add_library(incsfntly src/main.cpp)
+add_library(incsfntly src/incsfntly.cpp)
+add_library(incsfntly::incsfntly ALIAS incsfntly)
 target_compile_features(incsfntly PUBLIC cxx_std_23)
+
+target_sources(incsfntly
+    PUBLIC
+        FILE_SET pub_headers
+        TYPE HEADERS
+        BASE_DIRS
+                incl)
 
 include(CMake_dependencies.cmake) ### Loads and declares the required external libraries using CMake's FetchContent.
 target_link_libraries(incsfntly PUBLIC sfntly)
